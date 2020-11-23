@@ -29,3 +29,5 @@ tags
 .DS_Store
 *.swp
 *.swo
+build/
+compile_commands.json

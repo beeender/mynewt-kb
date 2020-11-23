@@ -1,0 +1,5 @@
+syscfg.vals:
+    USBD_PID: 0x1234
+    USBD_VID: 0x5678
+    USBD_HID: 1
+    USBD_HID_REPORT_ID_KEYBOARD: 1

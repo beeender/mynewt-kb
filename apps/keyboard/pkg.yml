@@ -4,12 +4,14 @@ pkg.description: Keyboard with mynewt
 pkg.author: "beeender <chemulong@gmail.com>"
 pkg.homepage: "http://mynewt.apache.org/"
 pkg.keywords:
-
+pkg.req_apis:
+    - log
+    - console
 pkg.deps:
     - "@apache-mynewt-core/kernel/os"
     - "@apache-mynewt-core/hw/hal"
-    - "@apache-mynewt-core/sys/console/stub"
-    - "@apache-mynewt-core/sys/log/stub"
+    - "@apache-mynewt-core/sys/console/full"
+    - "@apache-mynewt-core/sys/log/full"
     - "@apache-mynewt-core/hw/usb/tinyusb"
     - "@apache-mynewt-core/hw/usb/tinyusb/std_descriptors"
 

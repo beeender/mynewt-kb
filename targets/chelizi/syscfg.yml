@@ -3,3 +3,10 @@ syscfg.vals:
     USBD_VID: 0x5678
     USBD_HID: 1
     USBD_HID_REPORT_ID_KEYBOARD: 1
+    CONSOLE_USB: 1
+    USBD_CDC: 1
+    LOG_LEVEL: 0
+    LOG_NEWTMGR: 0
+    LOG_CONSOLE: 1
+    LOG_FCB: 0
+    CONSOLE_UART: 0

@@ -1,0 +1,22 @@
+syscfg.defs:
+    BLE_HID_DEV_NAME:
+        description: 'The name of the HID device.'
+        value: '"nimble-hid"'
+    BLE_HID_PASSKEY:
+        description: 'The passkey to be entered on the peer.'
+        value: 000000
+
+    ### Log settings.
+    BLE_HID_LOG_MOD:
+        description: 'Numeric module ID to use for BLE HID log messages.'
+        value: 6
+    BLE_HID_LOG_LVL:
+        description: 'Minimum level for the BLE HID log.'
+        value: 0
+
+syscfg.vals:
+
+syscfg.logs:
+    BLE_HID_LOG:
+        module: MYNEWT_VAL(BLE_HID_LOG_MOD)
+        level: MYNEWT_VAL(BLE_HID_LOG_LVL)

@@ -485,6 +485,14 @@ hid_cc_change_key(int key, bool pressed)
 }
 
 int
+hid_send_keyboard_report(const void* report, size_t report_size)
+{
+    assert(HIDD_LE_REPORT_KB_IN_SIZE == report_size);
+    memcpy(keyboard_buffer, report, report_size);
+    return hid_send_report(HANDLE_HID_KB_IN_REPORT);
+}
+
+int
 hid_keyboard_change_key(uint8_t key, bool pressed)
 {
     int rc = 0;

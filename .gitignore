@@ -31,3 +31,6 @@ tags
 *.swo
 build/
 compile_commands.json
+cscope.*
+.ccls-cache/
+.clangd/

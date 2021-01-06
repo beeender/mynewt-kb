@@ -7,6 +7,10 @@ syscfg.vals:
     USBD_CDC: 1
     LOG_LEVEL: 0
     LOG_NEWTMGR: 0
-    LOG_CONSOLE: 1
+    LOG_CONSOLE: 0
+    LOG_CLI: 1
     LOG_FCB: 0
+    SHELL_TASK: 1
     CONSOLE_UART: 0
+    MODLOG_CONSOLE_DFLT: 0
+    REBOOT_LOG_CONSOLE: 0

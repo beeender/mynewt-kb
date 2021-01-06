@@ -6,7 +6,7 @@
  * to you under the Apache License, Version 2.0 (the
  * "License"); you may not use this file except in compliance
  * with the License.  You may obtain a copy of the License at
- * 
+ *
  *  http://www.apache.org/licenses/LICENSE-2.0
  *
  * Unless required by applicable law or agreed to in writing,
@@ -16,25 +16,10 @@
  * specific language governing permissions and limitations
  * under the License.
  */
-
 #include <assert.h>
-#include <string.h>
-
 #include "sysinit/sysinit.h"
 #include "os/os.h"
-#include "bsp/bsp.h"
-#include "hal/hal_gpio.h"
-#ifdef ARCH_sim
-#include "mcu/mcu_sim.h"
-#endif
-#include <tinyusb/tinyusb.h>
-#include <tusb.h>
-
-
-static volatile int g_task1_loops;
-
-/* For LED toggling */
-int g_led_pin;
+#include "hal/hal_watchdog.h"
 
 /**
  * main
@@ -47,30 +32,16 @@ int g_led_pin;
 int
 main(int argc, char **argv)
 {
-    int rc;
-
-#ifdef ARCH_sim
-    mcu_sim_parse_args(argc, argv);
-#endif
-
     sysinit();
-    // TODO: Without this sleep, the usb cannot be initialized correctly. Could be a shorter delay
+
+    /* TODO: Without this sleep, the usb cannot be initialized correctly. Could be a shorter delay */
     os_time_delay(OS_TICKS_PER_SEC);
 
-    g_led_pin = LED_BLINK_PIN;
-    hal_gpio_init_out(g_led_pin, 1);
-
     while (1) {
-        ++g_task1_loops;
-
-        /* Wait one second */
-        os_time_delay(5 * OS_TICKS_PER_SEC);
-
-        /* Toggle the LED */
-        hal_gpio_toggle(g_led_pin);
+        os_eventq_run(os_eventq_dflt_get());
+        hal_watchdog_tickle();
     }
     assert(0);
 
-    return rc;
+    return 0;
 }
-

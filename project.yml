@@ -21,6 +21,7 @@ project.name: "my_project"
 
 project.repositories:
     - apache-mynewt-core
+    - apache-mynewt-mcumgr
 
 # Use github's distribution mechanism for core ASF libraries.
 # This provides mirroring automatically for us.
@@ -31,8 +32,20 @@ repository.apache-mynewt-core:
     user: apache
     repo: mynewt-core
 
+repository.apache-mynewt-mcumgr:
+    type: github
+    vers: 0.0.0
+    user: apache
+    repo: mynewt-mcumgr
+
 repository.tinyusb:
     type: github
     vers: 0.0.0
     user: hathach
     repo: tinyusb
+
+repository.tmk_keyboard:
+    type: github
+    vers: 0.0.0
+    user: beeender
+    repo: tmk_keyboard
